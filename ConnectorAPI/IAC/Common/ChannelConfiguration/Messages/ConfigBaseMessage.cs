@@ -1,8 +1,7 @@
-﻿using Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle;
-using Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Common.Enums;
-
-namespace Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Common.ChannelConfiguration.Messages
+﻿namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 {
+	using Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle;
+
 	/// <summary>
 	/// Represents the base class for all protocol messages.  
 	/// Provides common properties for protocol trigger identification, channel association, and input targeting.
@@ -42,6 +41,4 @@ namespace Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Common.ChannelConfiguration
 			ConfigType = configType;
 		}
 	}
-
-
 }
