@@ -6,6 +6,13 @@
 	using static Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.InputConfiguration;
 	using static Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.OutputConfiguration;
 
+	/// <summary>
+	/// Provides a list of known types used in the Ateme Titan Edge connector.
+	/// </summary>
+	/// <remarks>
+	/// This class is used to supply a list of types that are required for serialization and deserialization
+	/// of configuration messages in the Ateme Titan Edge connector.
+	/// </remarks>
 	public static class AtemeTitanEdgeKnownTypes
 	{
 		/// <summary>
@@ -14,7 +21,9 @@
 		/// <remarks>
 		/// This list is used for serialization and deserialization purposes.
 		/// </remarks>
-		/// <returns>A list of known types.</returns>
+		/// <value>
+		/// A list of <see cref="Type"/> objects representing the known types.
+		/// </value>
 		public static List<Type> KnownTypes => new List<Type>
 		{
 			typeof(ConfigBaseMessage),
@@ -42,6 +51,5 @@
 			typeof(OutputConnectorColorimetryConversionMessage),
 			typeof(OutputConnectorIutMessage),
 		};
-
 	}
 }
