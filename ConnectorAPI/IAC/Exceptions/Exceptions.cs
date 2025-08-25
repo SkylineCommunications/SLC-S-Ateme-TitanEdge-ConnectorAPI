@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.Utils.AtemeTitanEdge.Exceptions
+﻿namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.Exceptions
 {
 	using System;
 

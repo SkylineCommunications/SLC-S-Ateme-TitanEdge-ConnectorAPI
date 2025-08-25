@@ -5,7 +5,7 @@ using Skyline.DataMiner.Core.InterAppCalls.Common.CallBulk;
 using Skyline.DataMiner.Core.InterAppCalls.Common.Shared;
 using Skyline.DataMiner.Scripting;
 
-namespace Skyline.DataMiner.Utils.AtemeTitanEdge
+namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 {
 	/// <summary>
 	///     Ateme Titan Edge Server instance to handle InterApp messages.

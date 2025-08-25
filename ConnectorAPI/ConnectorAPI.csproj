@@ -3,8 +3,8 @@
 		<TargetFramework>net48</TargetFramework>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
-		<AssemblyName>Skyline.DataMiner.Utils.AtemeTitanEdge</AssemblyName>
-		<RootNamespace>Skyline.DataMiner.Utils.AtemeTitanEdge</RootNamespace>
+		<AssemblyName>Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge</AssemblyName>
+		<RootNamespace>Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge</RootNamespace>
 		<Version>1.0.1-build6</Version>
 		<PackageTags>Skyline;DataMiner</PackageTags>
 		<PackageProjectUrl>https://skyline.be</PackageProjectUrl>

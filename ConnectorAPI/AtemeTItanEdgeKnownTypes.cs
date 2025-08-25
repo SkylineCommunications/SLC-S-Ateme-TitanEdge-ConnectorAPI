@@ -1,10 +1,10 @@
-﻿namespace Skyline.DataMiner.Utils.AtemeTitanEdge
+﻿namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 {
 	using System;
 	using System.Collections.Generic;
 
-	using static Skyline.DataMiner.Utils.AtemeTitanEdge.InputConfiguration;
-	using static Skyline.DataMiner.Utils.AtemeTitanEdge.OutputConfiguration;
+	using static Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.InputConfiguration;
+	using static Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.OutputConfiguration;
 
 	public static class AtemeTitanEdgeKnownTypes
 	{

@@ -4,7 +4,7 @@
 	using FluentAssertions;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using Moq;
-	using Skyline.DataMiner.Utils.AtemeTitanEdge;
+	using Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge;
 
 	[TestClass]
 	public class InputConfigurationTests

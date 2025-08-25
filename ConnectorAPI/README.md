@@ -1,8 +1,65 @@
-# Skyline.DataMiner.Utils.AtemeTitanEdge
+# Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 
 ## About
 
-This repository contains the messages that are used to interact with the Ateme Titan Edge connector using InterApp communication.
+This repository contains the messages and builder classes used to interact with the Ateme Titan Edge connector using InterApp communication in DataMiner.
+
+## Use Cases
+
+- **Automated Channel Configuration:**
+  - Programmatically configure input and output channels for Ateme Titan Edge devices.
+- **Bulk Configuration Updates:**
+  - Build and send multiple configuration changes in a single operation using the builder pattern.
+- **Validation and Error Handling:**
+  - Input validation is built-in for IP addresses, ports, and other parameters, ensuring robust configuration.
+
+## Examples
+
+### Configure an Output Channel
+
+```csharp
+using Skyline.DataMiner.Utils.AtemeTitanEdge;
+
+var config = new OutputConfiguration(0, 1, ConfigType.Decoder)
+    .ChangeType(SdiType.HdSdi)
+    .SetName("Main Output")
+    .EnableColorimetry(true)
+    .SetColorimetryConversion(ColorimetryConversion.Hdr10)
+    .SetIutName(IutName.Hable);
+
+config.Send(client); // client implements IAtemeTitanEdgeClient
+```
+
+### Configure an Input Channel
+
+```csharp
+using Skyline.DataMiner.Utils.AtemeTitanEdge;
+
+var config = new InputConfiguration(0, 1, ConfigType.Encoder)
+    .EnableInput(true)
+    .SetIpAddress("239.0.0.1")
+    .SetIpPort(5000)
+    .SetInputType(InputType.Ip)
+    .EnableInputFec(true);
+
+config.Send(client); // client implements IAtemeTitanEdgeClient
+```
+
+### Error Handling Example
+
+```csharp
+try
+{
+    var config = new InputConfiguration(0, 1, ConfigType.Encoder)
+        .SetIpAddress("invalid_ip");
+}
+catch (ArgumentException ex)
+{
+    // Handle invalid IP address
+}
+```
+
+---
 
 ### About DataMiner
 
@@ -18,6 +75,3 @@ A unique catalog of 7000+ connectors already exists. In addition, you can levera
 ### About Skyline Communications
 
 At Skyline Communications, we deal in world-class solutions that are deployed by leading companies around the globe. Check out [our proven track record](https://aka.dataminer.services/about-skyline) and see how we make our customers' lives easier by empowering them to take their operations to the next level.
-
-<!-- Uncomment below and add more info to provide more information about how to use this package. -->
-<!-- ## Getting Started -->

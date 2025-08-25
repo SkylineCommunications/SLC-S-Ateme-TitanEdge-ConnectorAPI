@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.Utils.AtemeTitanEdge
+﻿namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 {
 	using System;
 	using System.Collections.Generic;
