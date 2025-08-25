@@ -1,11 +1,9 @@
-name: DataMiner CICD NuGet Solution
+name: DataMiner CICD Internal NuGet Solution
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events.
   push:
-    branches:
-      - '**'
     tags:
       - '[0-9]+.[0-9]+.[0-9]+-[0-9a-zA-Z]+'
   
