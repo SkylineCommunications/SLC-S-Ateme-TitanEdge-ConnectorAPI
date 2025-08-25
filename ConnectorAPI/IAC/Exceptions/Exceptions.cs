@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Exceptions
+﻿namespace Skyline.DataMiner.Utils.AtemeTitanEdge.Exceptions
 {
+	using System;
+
 	public class InputValidationException : Exception
 	{
 		public InputValidationException(string message) : base(message) { }

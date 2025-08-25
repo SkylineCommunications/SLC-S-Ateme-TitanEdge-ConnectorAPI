@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Common.ChannelConfiguration.Messages;
-using Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Models.Input;
-using Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Models.Output;
-using static Skyline.DataMiner.Utils.AtemeTitanEdge.AtemeTitanEdgeClient.InputConfiguration;
-using static Skyline.DataMiner.Utils.AtemeTitanEdge.AtemeTitanEdgeClient.OutputConfiguration;
-
-namespace Skyline.DataMiner.Utils.AtemeTitanEdge
+﻿namespace Skyline.DataMiner.Utils.AtemeTitanEdge
 {
+	using System;
+	using System.Collections.Generic;
+
+	using static Skyline.DataMiner.Utils.AtemeTitanEdge.InputConfiguration;
+	using static Skyline.DataMiner.Utils.AtemeTitanEdge.OutputConfiguration;
+
 	public static class AtemeTitanEdgeKnownTypes
 	{
 		/// <summary>

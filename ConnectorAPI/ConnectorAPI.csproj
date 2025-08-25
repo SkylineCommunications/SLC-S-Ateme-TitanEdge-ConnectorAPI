@@ -26,16 +26,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Moq" Version="4.20.72" />
-		<PackageReference Include="NUnit" Version="4.4.0" />
-		<PackageReference Include="Skyline.DataMiner.Core.DataMinerSystem.Automation" Version="1.1.3.3" />
-		<PackageReference Include="Skyline.DataMiner.Core.DataMinerSystem.Protocol" Version="1.1.3.3" />
 		<PackageReference Include="Skyline.DataMiner.Core.InterAppCalls.Common" Version="1.1.0.1" />
+		<PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.1.11" />
 		<PackageReference Include="Skyline.DataMiner.Utils.SecureCoding.Analyzers" Version="2.0.5">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="System.Text.Json" Version="9.0.7" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="ConnectorAPI.Tests" />
 	</ItemGroup>
 
 	<!-- Can be used to set the location of your local nuget store to copy to -->

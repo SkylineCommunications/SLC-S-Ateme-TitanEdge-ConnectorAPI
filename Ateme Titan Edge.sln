@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorAPI", "ConnectorAPI\ConnectorAPI.csproj", "{ED07621A-C1C6-406C-BD15-F773D66EC6F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorAPI.Tests", "ConnectorAPI.Tests\ConnectorAPI.Tests.csproj", "{5EB4F00F-03A5-431C-BB08-4A2D90DF69D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ED07621A-C1C6-406C-BD15-F773D66EC6F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED07621A-C1C6-406C-BD15-F773D66EC6F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED07621A-C1C6-406C-BD15-F773D66EC6F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB4F00F-03A5-431C-BB08-4A2D90DF69D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB4F00F-03A5-431C-BB08-4A2D90DF69D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB4F00F-03A5-431C-BB08-4A2D90DF69D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB4F00F-03A5-431C-BB08-4A2D90DF69D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

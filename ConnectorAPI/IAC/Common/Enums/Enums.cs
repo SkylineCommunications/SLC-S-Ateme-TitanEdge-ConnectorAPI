@@ -1,11 +1,7 @@
-﻿
-using System;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace Skyline.DataMiner.Utils.AtemeTitanEdge.IAC.Common.Enums
+﻿namespace Skyline.DataMiner.Utils.AtemeTitanEdge
 {
+	using System;
+
 	/// <summary>
 	/// Defines the configuration mode of the device.
 	/// </summary>

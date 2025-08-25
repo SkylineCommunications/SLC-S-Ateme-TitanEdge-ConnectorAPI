@@ -1,0 +1,21 @@
+﻿<Project Sdk="MSTest.Sdk/3.10.0">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<PlatformTarget>x86</PlatformTarget>
+		<RootNamespace>ConnectorAPI.Tests</RootNamespace>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentAssertions" Version="7.2.0" />
+		<PackageReference Include="Moq" Version="4.18.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ConnectorAPI\ConnectorAPI.csproj" />
+	</ItemGroup>
+
+</Project>
