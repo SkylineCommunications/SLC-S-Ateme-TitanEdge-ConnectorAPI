@@ -8,11 +8,6 @@
 	public enum ConfigType
 	{
 		/// <summary>
-		/// Encoder mode – used for converting input signals to compressed or network streams.
-		/// </summary>
-		Encoder = 0,
-
-		/// <summary>
 		/// Decoder mode – used for converting incoming streams to output signals.
 		/// </summary>
 		Decoder = 1,

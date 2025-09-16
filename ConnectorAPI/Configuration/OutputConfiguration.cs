@@ -39,7 +39,7 @@
 		/// <param name="connectorIndex">The input index of the channel.</param>
 		/// <param name="channelIndex">The channel index.</param>
 		/// <param name="type">The type of the channel.</param>
-		public OutputConfiguration(int connectorIndex, int channelIndex, ConfigType type)
+		public OutputConfiguration(int connectorIndex, int channelIndex, ConfigType type = ConfigType.Decoder)
 		{
 			_connectorIndex = connectorIndex;
 			_channelIndex = channelIndex;
