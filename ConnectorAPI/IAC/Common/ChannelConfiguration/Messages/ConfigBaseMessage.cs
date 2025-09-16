@@ -19,7 +19,7 @@
 		public int InputIndex { get; }
 
 		/// <summary>
-		/// Gets the config type (Encoder/Decoder) for this message.
+		/// Gets the config type for this message.
 		/// </summary>
 		public ConfigType ConfigType { get; }
 
