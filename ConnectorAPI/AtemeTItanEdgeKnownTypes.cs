@@ -3,8 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 
-	using static Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.InputConfiguration;
-	using static Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.OutputConfiguration;
+	using Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.Messages;
 
 	/// <summary>
 	/// Provides a list of known types used in the Ateme Titan Edge connector.
@@ -26,30 +25,9 @@
 		/// </value>
 		public static List<Type> KnownTypes => new List<Type>
 		{
-			typeof(ConfigBaseMessage),
-			typeof(EnableInputMessage),
-			typeof(SetIpAddressMessage),
-			typeof(SetInputTypeMessage),
-			typeof(SetIpPortMessage),
-			typeof(SetInterfaceMessage),
-			typeof(EnableInputFecMessage),
-			typeof(SetBufferDurationMessage),
-			typeof(EnableSourceSpecificMulticastMessage),
-			typeof(SetSourceSpecificMulticastModeMessage),
-			typeof(EnableSmpte20227Message),
-			typeof(SetSmpte20227IpAddressMessage),
-			typeof(SetSmpte20227PortMessage),
-			typeof(SetSmpte20227InterfaceMessage),
-			typeof(SetSmpte20227SkewMessage),
-			typeof(SetSmpte20227CustomSkewMessage),
-			typeof(EnableInputVbrMessage),
-			typeof(EnableLowLatencyFecMessage),
-			typeof(SetAccelerationTypeMessage),
-			typeof(OutputConnectorTypeMessage),
-			typeof(OutputConnectorNameMessage),
-			typeof(OutputConnectorColorimetryMessage),
-			typeof(OutputConnectorColorimetryConversionMessage),
-			typeof(OutputConnectorIutMessage),
+			typeof(ConfigureDecoderMessage),
+			typeof(ConfigureEncoderMessage),
+			typeof(ConfigureDemodulatorMessage),
 		};
 	}
 }
