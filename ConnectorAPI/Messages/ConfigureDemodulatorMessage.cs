@@ -6,7 +6,7 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.Messages
 	/// Generic PID-based passthrough message that instructs the Ateme Titan Edge
 	/// connector to write <see cref="Value"/> to the parameter identified by
 	/// <see cref="Pid"/> on the decoder side. For table parameters, either
-	/// <see cref="PrimaryKey"/> or <see cref="DisplayKey"/> identifies the row.
+	/// <see cref="ChannelId"/> or <see cref="DisplayKey"/> identifies the row.
 	/// </summary>
 	public class ConfigureDemodulatorMessage : Message
 	{
@@ -25,11 +25,5 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.Messages
 		/// Null for scalar parameters or when only <see cref="DisplayKey"/> is known.
 		/// </summary>
 		public string PrimaryKey { get; set; }
-
-		/// <summary>
-		/// Gets or sets the display key of the target table row.
-		/// Null for scalar parameters or when only <see cref="PrimaryKey"/> is known.
-		/// </summary>
-		public string DisplayKey { get; set; }
 	}
 }

@@ -5,7 +5,6 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text.RegularExpressions;
 
 	using Skyline.DataMiner.Core.InterAppCalls.Common.CallBulk;
 	using Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle;
@@ -52,9 +51,9 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 				throw new ArgumentException($"The element does not exists with id '{agentId}/{elementId}'", nameof(elementId));
 			}
 
-			if (elementInfo.Protocol != ProtocolName)
+			if (!elementInfo.Protocol.Contains(ProtocolName))
 			{
-				throw new ArgumentException($"The element is not running protocol '{ProtocolName}'", nameof(elementId));
+				throw new ArgumentException($"The element {elementInfo.Name} is not running protocol '{ProtocolName}'", nameof(elementId));
 			}
 
 			AgentId = elementInfo.DataMinerID;
@@ -94,9 +93,9 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 				throw new ArgumentException($"The element does not exists with name '{elementName}'", nameof(elementName));
 			}
 
-			if (elementInfo.Protocol != ProtocolName)
+			if (!elementInfo.Protocol.Contains(ProtocolName))
 			{
-				throw new ArgumentException($"The element is not running protocol '{ProtocolName}'", nameof(elementName));
+				throw new ArgumentException($"The element {elementName} is not running protocol '{ProtocolName}'", nameof(elementName));
 			}
 
 			AgentId = elementInfo.DataMinerID;
@@ -117,10 +116,23 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 		public string ElementName { get; }
 
 		/// <inheritdoc />
-		public void SendConfig(IAtemeTitanEdgeConfig config)
+		public void SendBulk(IEnumerable<Message> messages)
 		{
-			var messages = config.ToInterAppMessages();
-			SendBulkMessage(messages);
+			if (messages == null)
+			{
+				throw new ArgumentNullException(nameof(messages));
+			}
+
+			var array = messages.ToArray();
+			if (array.Length == 0)
+			{
+				return;
+			}
+
+			var interAppCall = InterAppCallFactory.CreateNew();
+			interAppCall.Messages.AddMessage(array);
+			interAppCall.ReturnAddress = new ReturnAddress(AgentId, ElementId, IacResponsePID);
+			interAppCall.Send(Connection, AgentId, ElementId, IacReceiverPID, AtemeTitanEdgeKnownTypes.KnownTypes);
 		}
 
 		/// <summary>
@@ -135,16 +147,5 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 			interAppCall.Send(Connection, AgentId, ElementId, IacReceiverPID, AtemeTitanEdgeKnownTypes.KnownTypes);
 		}
 
-		/// <summary>
-		///     Sends this call via SLNet without waiting on a reply.
-		/// </summary>
-		/// <param name="messages">The list of InterApp messages to send.</param>
-		private void SendBulkMessage(Message[] messages)
-		{
-			var interAppCall = InterAppCallFactory.CreateNew();
-			interAppCall.Messages.AddMessage(messages);
-			interAppCall.ReturnAddress = new ReturnAddress(AgentId, ElementId, IacResponsePID);
-			interAppCall.Send(Connection, AgentId, ElementId, IacReceiverPID, AtemeTitanEdgeKnownTypes.KnownTypes);
-		}
 	}
 }

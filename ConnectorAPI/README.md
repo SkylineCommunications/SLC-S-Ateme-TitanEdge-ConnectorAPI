@@ -14,36 +14,18 @@ This repository contains the messages and builder classes used to interact with 
   - Input validation is built-in for IP addresses, ports, and other parameters, ensuring robust configuration.
 
 ## Examples
+# Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 
-### Configure an Output Channel
+InterApp message contracts and client for configuring Ateme Titan Edge elements.
 
-```csharp
-using Skyline.DataMiner.Utils.AtemeTitanEdge;
-
-var config = new OutputConfiguration(0, 1, ConfigType.Decoder)
-    .ChangeType(SdiType.HdSdi)
-    .SetName("Main Output")
-    .EnableColorimetry(true)
-    .SetColorimetryConversion(ColorimetryConversion.Hdr10)
-    .SetIutName(IutName.Hable);
-
-config.Send(client); // client implements IAtemeTitanEdgeClient
-```
-
-### Configure an Input Channel
-
-```csharp
-using Skyline.DataMiner.Utils.AtemeTitanEdge;
-
-var config = new InputConfiguration(0, 1, ConfigType.Encoder)
-    .EnableInput(true)
-    .SetIpAddress("239.0.0.1")
-    .SetIpPort(5000)
-    .SetInputType(InputType.Ip)
-    .EnableInputFec(true);
-
-config.Send(client); // client implements IAtemeTitanEdgeClient
-```
+## Usage
+var client = new AtemeTitanEdgeClient(connection, "My Ateme Element");
+client.SendBulk(new Message[]
+{
+    new ConfigureDecoderMessage    { Pid = 1001, Value = "1", PrimaryKey = "1" },
+    new ConfigureEncoderMessage    { Pid = 2001, Value = "SRT", DisplayKey = "Output 1" },
+    new ConfigureDemodulatorMessage{ Pid = 3001, Value = "27500", PrimaryKey = "1" },
+});
 
 ### Error Handling Example
 
