@@ -135,17 +135,13 @@ namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 			interAppCall.Send(Connection, AgentId, ElementId, IacReceiverPID, AtemeTitanEdgeKnownTypes.KnownTypes);
 		}
 
-		/// <summary>
-		///     Sends this call via SLNet without waiting on a reply.
-		/// </summary>
-		/// <param name="message">A single InterApp message to send.</param>
-		private void SendMessage(Message message)
+		/// <inheritdoc />
+		public void SendMessage(Message message)
 		{
 			var interAppCall = InterAppCallFactory.CreateNew();
 			interAppCall.Messages.AddMessage(message);
 			interAppCall.ReturnAddress = new ReturnAddress(AgentId, ElementId, IacResponsePID);
 			interAppCall.Send(Connection, AgentId, ElementId, IacReceiverPID, AtemeTitanEdgeKnownTypes.KnownTypes);
 		}
-
 	}
 }

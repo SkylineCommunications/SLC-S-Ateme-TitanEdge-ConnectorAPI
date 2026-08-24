@@ -27,5 +27,11 @@
 		/// </summary>
 		/// <param name="messages">The messages to send.</param>
 		void SendBulk(IEnumerable<Message> messages);
+
+		/// <summary>
+		///     Sends this call via SLNet without waiting on a reply.
+		/// </summary>
+		/// <param name="message">A single InterApp message to send.</param>
+		void SendMessage(Message  message);
 	}
 }
