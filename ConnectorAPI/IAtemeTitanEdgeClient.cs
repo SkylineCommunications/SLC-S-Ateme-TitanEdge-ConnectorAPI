@@ -1,38 +1,37 @@
-﻿// Ignore Spelling: Utils Ateme
-
-namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
+﻿namespace Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge
 {
+	using System.Collections.Generic;
+
+	using Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle;
 	using Skyline.DataMiner.Net;
 
 	/// <summary>
-	/// Represents a client for interacting with an Ateme Titan Edge element.
+	/// Represents a client for interacting with an Ateme Titan Edge element via InterApp calls.
 	/// </summary>
 	public interface IAtemeTitanEdgeClient
 	{
-		/// <summary>
-		/// Gets the connection to the DataMiner system.
-		/// </summary>
+		/// <summary>Gets the connection to the DataMiner system.</summary>
 		IConnection Connection { get; }
 
-		/// <summary>
-		/// Gets the agent ID of the Ateme Titan Edge element.
-		/// </summary>
+		/// <summary>Gets the agent ID of the Ateme Titan Edge element.</summary>
 		int AgentId { get; }
 
-		/// <summary>
-		/// Gets the element ID of the Ateme Titan Edge element.
-		/// </summary>
+		/// <summary>Gets the element ID of the Ateme Titan Edge element.</summary>
 		int ElementId { get; }
 
-		/// <summary>
-		/// Gets the name of the Ateme Titan Edge element.
-		/// </summary>
+		/// <summary>Gets the name of the Ateme Titan Edge element.</summary>
 		string ElementName { get; }
 
 		/// <summary>
-		/// Sends a bulk message to the Ateme Titan Edge element.
+		/// Sends the specified InterApp messages to the element in a single bulk call. Fire-and-forget.
 		/// </summary>
-		/// <param name="messages">The array of messages to send.</param>
-		void SendConfig(IAtemeTitanEdgeConfig config);
+		/// <param name="messages">The messages to send.</param>
+		void SendBulk(IEnumerable<Message> messages);
+
+		/// <summary>
+		///     Sends this call via SLNet without waiting on a reply.
+		/// </summary>
+		/// <param name="message">A single InterApp message to send.</param>
+		void SendMessage(Message  message);
 	}
 }
