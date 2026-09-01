@@ -15,34 +15,37 @@ This repository contains the messages and builder classes used to interact with 
 
 ## Examples
 
-### Configure an Output Channel
+### Send a Single Message
 
 ```csharp
-using Skyline.DataMiner.Utils.AtemeTitanEdge;
+using Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge;
+using Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.Messages;
 
-var config = new OutputConfiguration(0, 1, ConfigType.Decoder)
-    .ChangeType(SdiType.HdSdi)
-    .SetName("Main Output")
-    .EnableColorimetry(true)
-    .SetColorimetryConversion(ColorimetryConversion.Hdr10)
-    .SetIutName(IutName.Hable);
+var client = new AtemeTitanEdgeClient(connection, "My Ateme Element");
 
-config.Send(client); // client implements IAtemeTitanEdgeClient
+client.SendMessage(new ConfigureEncoderMessage { Pid = 2001, Value = "SRT", PrimaryKey = "1" });
 ```
 
-### Configure an Input Channel
+### Send Multiple Messages in Bulk
 
 ```csharp
-using Skyline.DataMiner.Utils.AtemeTitanEdge;
+using Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge;
+using Skyline.DataMiner.ConnectorAPI.Ateme.TitanEdge.Messages;
 
-var config = new InputConfiguration(0, 1, ConfigType.Encoder)
-    .EnableInput(true)
-    .SetIpAddress("239.0.0.1")
-    .SetIpPort(5000)
-    .SetInputType(InputType.Ip)
-    .EnableInputFec(true);
+var client = new AtemeTitanEdgeClient(connection, "My Ateme Element");
 
-config.Send(client); // client implements IAtemeTitanEdgeClient
+client.SendBulk(new Message[]
+{
+    new ConfigureDecoderMessage     { Pid = 1001, Value = "1",     PrimaryKey = "1" },
+    new ConfigureEncoderMessage     { Pid = 2001, Value = "SRT",   PrimaryKey = "1" },
+    new ConfigureDemodulatorMessage { Pid = 3001, Value = "27500", PrimaryKey = "1" },
+});
+```
+
+### Connect by Agent and Element ID
+
+```csharp
+var client = new AtemeTitanEdgeClient(connection, agentId: 123, elementId: 456);
 ```
 
 ### Error Handling Example
@@ -50,12 +53,11 @@ config.Send(client); // client implements IAtemeTitanEdgeClient
 ```csharp
 try
 {
-    var config = new InputConfiguration(0, 1, ConfigType.Encoder)
-        .SetIpAddress("invalid_ip");
+    var client = new AtemeTitanEdgeClient(connection, "NonExistentElement");
 }
 catch (ArgumentException ex)
 {
-    // Handle invalid IP address
+    // Element does not exist or is not running the Ateme Titan Edge protocol
 }
 ```
 
